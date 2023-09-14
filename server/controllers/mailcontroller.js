@@ -7,7 +7,7 @@ export const sendMail = async (req, res) => {
       service :"gmail",
       auth: {
         user: "mynameisaswin321@gmail.com",
-        pass: "nlhgwupshulzvpgn",
+        pass: "nqxooclkzxxnrfsa",
       },
     });
 
