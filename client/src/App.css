@@ -1,0 +1,10 @@
+@font-face {
+  font-family: brexo;
+  src: url(./fonts/brexo.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
