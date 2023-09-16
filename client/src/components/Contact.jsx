@@ -1,18 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Usevalidate from '../customhooks/Validation';
 import axiosinstance from '../Axios';
 import { toast } from 'react-toastify';
+import Loader from './Loader';
 
 function Contact() {
+  const [loader,setloader] = useState(false)
   // calling the custom hook for contactForm validation
-  let { handelChange, values, errors } = Usevalidate();
+  let { handelChange, values, errors,removevalue} = Usevalidate();
   const submit = ()=>{
-    console.log(values)
-    console.log(errors)
+   
    if(Object.keys(values).length === 3 && Object.keys(errors).length === 0){
+    setloader(true)
     axiosinstance.post('/auth/sendmail',values).then((data)=>{
-
+      removevalue()
+      generatesuccess('message successfully sent')
+        setloader(false)
     }).catch((er)=>{
+      setloader(false)
       generateerror("sorry,contact us through mail")
 
     })
@@ -27,13 +32,19 @@ function Contact() {
       position: "top-center",
     });
   };
+  const generatesuccess = (err) => {
+    toast.success(err, {
+      position: "top-center",
+    });
+  };
   return (
     <div id='contact'>
       <section className="bg-black">
   <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
       <h2 className="mb-4 text-4xl tracking-tight font-brexo text-center text-white">Contact Us</h2>
       <p className="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">Need details about our Business plan? Let us know.</p>
-      <form action="#" className="space-y-8">
+    {loader ?  <div className='flex justify-center align-middle'><Loader/></div> : <>
+    <form action="#" className="space-y-8">
           <div>
               <label for="email" className="block mb-2 text-sm font-medium text-white">Your email</label>
               <input type="email" id="email" name='email' value={values.email} onChange={handelChange} className="shadow-sm50 border border-gray-300 text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 bg-black" placeholder="name@fetlla.com" required></input>
@@ -57,6 +68,7 @@ function Contact() {
           </div>
           <button type="button" onClick={submit} className="py-3 px-5 text-sm font-medium text-center text-black bg-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Send message</button>
       </form>
+    </>}
   </div>
 </section>
     </div>

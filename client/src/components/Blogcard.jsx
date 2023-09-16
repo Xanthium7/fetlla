@@ -24,11 +24,11 @@ function Blogcard({home}) {
   return (
     <div className='flex-col' id='blog'>
           <div className='flex p-10 justify-center'>
-        <h1 className='text-2xl font-brexo  lg:text-4xl'>{home ? 'From the Blog' : 'Blogs'}</h1>
+        <h1 className='text-2xl font-brexo  lg:text-4xl whitespace-nowrap'>{home ? 'From the Blog' : 'Blogs'}</h1>
         </div>
         
           <aside aria-label="Related articles" class="py-8 lg:py-24 bg-black text-white">
-  <div class="px-4 mx-auto max-w-screen-xl">
+  <div class="px-10 mx-auto max-w-screen-xl">
      
       {
         loader ? <div className='flex justify-center align-middle'><Loader/></div> : <div class="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">

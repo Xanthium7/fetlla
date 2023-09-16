@@ -3,6 +3,7 @@ import { useState } from "react";
 function Usevalidate() {
   const [values, setvalues] = useState({});
   const [errors, seterrors] = useState({});
+ 
   let value;
   const handelChange = (event) => {
     const name = event.target.name;

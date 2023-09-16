@@ -4,7 +4,7 @@ function Welcome() {
   return (
     <div className="flex flex-col justify-around align-middle  lg:flex-row  lg:mt-20 ">
        
-        <div className="flex flex-col p-10 items-baseline mb-10  text-white h-full lg:h-screen lg:mt-20 lg:items-center lg:align-middle lg:mb-0">
+        <div className="flex flex-col p-8 items-baseline mb-10  text-white h-full lg:h-screen lg:mt-20 lg:items-center lg:align-middle lg:mb-0">
       <div className="m-2">
         <h1 className="text-4xl font-brexo">WELCOME TO FETLLA</h1>
       </div>

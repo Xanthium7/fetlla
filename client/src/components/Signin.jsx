@@ -27,7 +27,7 @@ function Signin() {
       alert("verify token");
       return;
     }
-    alert(token);
+  
     values.token = token;
     setloader(true);
     if (Object.keys(values).length === 3 && Object.keys(errors).length === 0) {
