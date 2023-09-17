@@ -5,7 +5,8 @@ function Slider() {
   const [slides,setslices] = useState([])
   useEffect(()=>{
     axiosinstance.get('/review/getreview').then(({data})=>{
-      setslices(data.data)
+      const latesblogs = data.data.slice(0,4)
+      setslices(latesblogs)
     }).catch((er)=>{
       console.log(er)
     })

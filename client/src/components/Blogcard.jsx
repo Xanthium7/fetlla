@@ -23,15 +23,15 @@ function Blogcard({home}) {
     },[])
   return (
     <div className='flex-col' id='blog'>
-          <div className='flex p-10 justify-center'>
+          <div className='flex p-5 justify-center'>
         <h1 className='text-2xl font-brexo  lg:text-4xl whitespace-nowrap'>{home ? 'From the Blog' : 'Blogs'}</h1>
         </div>
         
           <aside aria-label="Related articles" class="py-8 lg:py-24 bg-black text-white">
-  <div class="px-10 mx-auto max-w-screen-xl">
+  <div class={ home ? "px-10 mx-auto max-w-screen-xl" : "flex align-middle justify-center mx-auto max-w-screen-xl p-4 "}>
      
       {
-        loader ? <div className='flex justify-center align-middle'><Loader/></div> : <div class="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
+        loader ? <div className='flex justify-center align-middle'><Loader/></div> : <div class={ home ? "grid gap-12 sm:grid-cols-2 lg:grid-cols-4" : "grid gap-12 sm:grid-cols-2 lg:grid-cols-3"}>
         {
            blogs.map((e)=>{
                return (
@@ -42,10 +42,12 @@ function Blogcard({home}) {
                    <h2 class="mb-2 text-xl font-bold leading-tighttext-white">
                        <a href="#">{e.title}</a>
                    </h2>
-                   <p class="mb-4 font-light text-white"></p>
-                   <a href={`/blog/${e._id}`} class="inline-flex items-center font-medium underline underline-offset-4 text-primary-600 dark:text-primary-500 hover:no-underline">
+                  <div className='flex align-bottom bottom-0 h-4'>
+                  <a href={`/blog/${e._id}`} class="inline-flex items-center font-medium underline underline-offset-4 text-primary-600 dark:text-primary-500 hover:no-underline bottom-0">
                        Read more
                    </a>
+                  </div>
+                 
                </article>
            
                )

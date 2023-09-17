@@ -6,7 +6,7 @@ function Welcome() {
        
         <div className="flex flex-col p-8 items-baseline mb-10  text-white h-full lg:h-screen lg:mt-20 lg:items-center lg:align-middle lg:mb-0">
       <div className="m-2">
-        <h1 className="text-4xl font-brexo">WELCOME TO FETLLA</h1>
+        <h1 className="text-3xl font-brexo md:text-4xl lg:text-4xl">WELCOME TO FETLLA</h1>
       </div>
       <div className="m-2">
         <p className="text-2xl font-montserrat">

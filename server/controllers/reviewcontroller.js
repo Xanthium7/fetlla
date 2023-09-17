@@ -23,11 +23,24 @@ export const createReviews = async (req, res) => {
     res.status(500).json({ status: false, message: "failed" });
   }
 };
+
 export const getallReviews = async (req, res) => {
   try {
-    const allimage = await reviewmodel.find().sort({updatedAt:-1}).limit(4);
+    const allimage = await reviewmodel.find().sort({updatedAt:-1})
     res.status(200).json({ status: true, data: allimage });
   } catch (error) {
     res.status(500).json({ status: false, message: "failed" });
   }
 };
+export const delreviewbyId = async (req,res)=>{
+  try {
+    const allreview = await reviewmodel.deleteOne({_id:req.query.id})
+    const remainingreview = await reviewmodel.find().sort({updatedAt:-1})
+    res.status(200).json({status:true,allreview:remainingreview})
+    
+  } catch (error) {
+    res.status(500).json({ status: false, message: "failed" });
+    
+  }
+}
+

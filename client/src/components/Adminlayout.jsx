@@ -14,7 +14,7 @@ function Adminlayout({children}) {
 
   <div className="drawer-side">
     <label htmlFor="my-drawer" className="drawer-overlay"></label>
-    <ul className="menu w-60 min-h-full bg-white text-black">
+    <ul className="menu w-60 min-h-full bg-white text-black overflow-y-auto">
       {/* Sidebar content here */}
      <Adminsidenav/>
       
@@ -23,7 +23,7 @@ function Adminlayout({children}) {
 </div>
       </div>
      
-      <div className=" mr-8 mt-4 md:w-9/12 ">{children}</div>
+      <div className="md:w-9/12 ">{children}</div>
     </div>
       
     </div>

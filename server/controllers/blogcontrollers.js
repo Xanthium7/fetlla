@@ -20,6 +20,7 @@ export const createblog = async (req, res) => {
     res.status(200).json({status:true,msg:'blog uploaded'})
   } catch (error) {
     console.log(error);
+    res.status(500).json({ status: false, message: "failed" });
   }
 };
 export const getAllblog = async (req,res)=>{
@@ -29,6 +30,7 @@ export const getAllblog = async (req,res)=>{
         
     } catch (error) {
         console.log(error)
+        res.status(500).json({ status: false, message: "failed" });
         
     }
 }
@@ -37,6 +39,20 @@ export const getblogbyId = async(req,res)=>{
     const blog = await blogmodel.findById(req.params.id)
     res.status(200).json({status:true,blog})
   } catch (error) {
+    res.status(500).json({ status: false, message: "failed" });
+    
+  }
+}
+export const delblogbyId = async (req,res)=>{
+  try {
+    console.log(req.query)
+    const allblog = await blogmodel.deleteOne({_id:req.query.id})
+    const remainingBlogs = await blogmodel.find().sort({updatedAt:-1})
+    console.log(remainingBlogs)
+    res.status(200).json({status:true,allblogs:remainingBlogs})
+    
+  } catch (error) {
+    res.status(500).json({ status: false, message: "failed" });
     
   }
 }

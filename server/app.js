@@ -29,8 +29,9 @@ app.use(cookie());
 
 //to enable cors
 // in localhost
-app.use(cors({ credentials: true, origin: "http://localhost:5173" }));
+app.use(cors({ credentials: true, origin: "http://localhost:5173", }));
 //app.use(cors({credentials:true,origin:"http://35.154.223.195"}))
+
 
 app.use("/api/auth", authrouter);
 app.use("/api/blog", blogrouter);

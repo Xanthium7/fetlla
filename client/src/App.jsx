@@ -15,6 +15,9 @@ import Services from "./pages/Services";
 import Allblogs from "./pages/Allblogs";
 import Addreviews from "./pages/Addreviews";
 import Displayservices from "./pages/displayservices";
+import Blogmanage from "./pages/Blogmanage";
+import Servicemanage from "./pages/Servicemanage";
+import Reviewmanage from "./pages/Reviewmanage";
 function App() {
   let Logedin = useSelector((state) => state.auth.Adminisloggedin);
   return (
@@ -27,6 +30,9 @@ function App() {
               <Route path="/admindash/addblog" element={<Addblog />}></Route>
               <Route path="/admindash/addservices" element={<Services />}></Route>
               <Route path="/admindash/addreviews" element={<Addreviews />}></Route>
+              <Route path="/admindash/manageblog" element={<Blogmanage/>}></Route>
+              <Route path="/admindash/manageservices" element={<Servicemanage/>}></Route>
+              <Route path="/admindash/managereview" element={<Reviewmanage/>}></Route>
             </Route>
             <Route
               path="/login"
@@ -43,6 +49,7 @@ function App() {
             <Route path="/" element={<Home />}></Route>
             <Route path="/allblogs" element={<Allblogs />}></Route>
             <Route path="/allservices" element={<Displayservices/>}></Route>
+          
           </Routes>
         </BrowserRouter>
       </div>

@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import { Authaction } from "../Redux/Authslice";
 
 function Services() {
-  const { handelChange, values, errors } = Usevalidate();
+  const { handelChange, values, errors,removevalue } = Usevalidate();
   const [image, setimage] = useState("");
   const [loading,setloading] = useState(false)
   const dispatch = useDispatch()
@@ -39,7 +39,9 @@ function Services() {
         axiosinstance.post("/services/createnewservices",{imgconvert,title,message}).then((data)=>{
           alert('done')
           setloading(false)
+          removevalue()
         }).catch((er)=>{
+          removevalue()
           alert('failed')
           setloading(false)
           dispatch(Authaction.Setlogout())
