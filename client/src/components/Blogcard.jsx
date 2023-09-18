@@ -21,8 +21,18 @@ function Blogcard({home}) {
         })
 
     },[])
+
+    const isMobile = window.innerWidth <= 767;
+
+    const blogHeight =  isMobile 
+    ? {
+        margin: '60px 0',
+    }
+    : {
+        //No Need for height in Desktop Version.
+    };
   return (
-    <div className='flex-col' id='blog'>
+    <div style={blogHeight} className='flex-col' id='blog'>
           <div className='flex p-5 justify-center'>
         <h1 className='text-2xl font-brexo  lg:text-4xl whitespace-nowrap'>{home ? 'From the Blog' : 'Blogs'}</h1>
         </div>
@@ -35,9 +45,9 @@ function Blogcard({home}) {
         {
            blogs.map((e)=>{
                return (
-                   <article class="max-w-xs">
+                   <article style={{height:'240px', overflow:'hidden'}} class="max-w-xs">
                   
-                       <img src={e.img} class="mb-5 rounded-lg w-full h-1/2" alt="Image 1" ></img>
+                       <img style={{height:'153px', objectFit:'cover', objectPosition:'center'}} src={e.img} class="mb-5 rounded-lg w-full h-1/2" alt="Image 1" ></img>
                  
                    <h2 class="mb-2 text-xl font-bold leading-tighttext-white">
                        <a href="#">{e.title}</a>
@@ -59,7 +69,7 @@ function Blogcard({home}) {
      </div>
       }
     {
-        home &&  <div className='flex align-middle justify-center'>
+        home &&  <div style={{marginTop: '2rem'}} className='flex align-middle justify-center'>
         <Link to='/allblogs' class="inline-flex items-center px-3 py-2 text-sm font-medium text-center  bg-black  hover:bg-gray-900 border border-white text-white font-montserrat  m-2 ">
            Read more Blog from us
            <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">

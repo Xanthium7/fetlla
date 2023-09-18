@@ -37,14 +37,45 @@ function Contact() {
       position: "top-center",
     });
   };
+  /* Styles for Mobile Design  */
+
+  const isMobile = window.innerWidth <= 767;
+
+  const contactStyles = isMobile 
+  ? {
+    padding: '0 10%',
+  }
+  : {
+    // Already Used Tailwind as Desktop
+  };
+
+  const contactHeading = isMobile 
+  ? {
+    fontSize: '1.5rem',
+  }
+  : {
+    // Already Used Tailwind as Desktop
+  };
+
+  const contactMessage = isMobile 
+  ? {
+    width: '267px',
+    textAlign: 'center',
+    margin: '10px auto',
+  }
+  : {
+    // Already Used Tailwind as Desktop
+  };
+
+
   return (
     <div id='contact'>
       <section className="bg-black">
   <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
-      <h2 className="mb-4 text-4xl tracking-tight font-brexo text-center text-white">Contact Us</h2>
-      <p className="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">Need details about our Business plan? Let us know.</p>
+      <h2 style={contactHeading} className="mb-4 text-4xl tracking-tight font-brexo text-center text-white">Contact Us</h2>
+      <p style={contactMessage} className="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">Need details about our Business plan? Let us know.</p>
     {loader ?  <div className='flex justify-center align-middle'><Loader/></div> : <>
-    <form action="#" className="space-y-8">
+    <form action="#" className="space-y-8" style={contactStyles}>
           <div>
               <label for="email" className="block mb-2 text-sm font-medium text-white">Your email</label>
               <input type="email" id="email" name='email' value={values.email} onChange={handelChange} className="shadow-sm50 border border-gray-300 text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 bg-black" placeholder="name@fetlla.com" required></input>

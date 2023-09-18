@@ -1,12 +1,10 @@
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
-
 function Navbar() {
   const [shownav, setshownav] = useState(false);
-  
-  const { id } = useParams();
 
+  const { id } = useParams();
 
   return (
     <div className="top-0 sticky z-50">
@@ -14,7 +12,7 @@ function Navbar() {
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <a href="/" className="flex items-center">
             <img
-              src={ id ?  "../Fetlla.jpg" : "./Fetlla.jpg"} 
+              src={id ? "../Fetlla.jpg" : "./Fetlla.jpg"}
               className="h-8 mr-3"
               alt=" Logo"
             />
@@ -32,7 +30,7 @@ function Navbar() {
           >
             <span className="sr-only">Open main menu</span>
             <svg
-            style={{color:"white",backgroundColor:"black"}}
+              style={{ color: "white", backgroundColor: "black" }}
               className="w-6 h-6"
               aria-hidden="true"
               fill="currentColor"
@@ -55,37 +53,30 @@ function Navbar() {
             }
           >
             <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg   md:flex-row md:space-x-8 md:mt-0 md:border-0 bg-black dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-             
+              <li>
+                <p className="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                  <Link to="/">Home</Link>
+                </p>
+              </li>
+              <li>
+                <p className="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                  <a href="/#about">About</a>
+                </p>
+              </li>
+              <li>
+                <p className="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                  <a href="/allblogs">Blog</a>
+                </p>
+              </li>
+              <li>
+                <p className="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                  <a href="/allservices">Services</a>
+                </p>
+              </li>
 
-              <li >
-                <p className="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
-                <Link to='/'>Home</Link>
-                </p>
-              </li>
-              <li>
-              
-                  
-                   
-                    <p className="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
-                     <a href='/#about'>About</a> 
-                    </p>
-                
-              
-              </li>
               <li>
                 <p className="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
-                 <a href='/allblogs'>Blog</a>
-                </p>
-              </li>
-              <li>
-                <p className="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
-               <a href="/allservices">Services</a>
-                </p>
-              </li>
-             
-              <li>
-                <p className="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
-                <a href="/#contact">Contact</a>
+                  <a href="/#contact">Contact</a>
                 </p>
               </li>
             </ul>
