@@ -29,7 +29,7 @@ app.use(cookie());
 
 //to enable cors
 // in localhost
-app.use(cors({ credentials: true, origin: "http://localhost:5173", }));
+app.use(cors({ credentials: true, origin: "https://fetlla-web.vercel.app", }));
 //app.use(cors({credentials:true,origin:"http://35.154.223.195"}))
 
 
